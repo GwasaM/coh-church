@@ -1,0 +1,67 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block title %}
+    Contact Us
+{% endblock title %}
+
+{% block main-content %}
+<section class="contact-section py-5">
+  <div class="container">
+    <!-- Page Header -->
+    <div class="row mb-5 text-center">
+      <div class="col">
+        <h1 class="display-4 text-primary">Get in Touch</h1>
+        <p class="lead">We'd love to hear from you. Reach out to us with any questions, concerns, or feedback.</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <!-- Contact Form -->
+      <div class="col-md-6">
+        <h2 class="text-primary mb-4">Send Us a Message</h2>
+
+        <form method="POST" action="{% url 'contact' %}">
+          {% csrf_token %}
+          {{ form.as_p }}
+
+          <!-- Display form errors -->
+          {% if form.errors %}
+            <div class="alert alert-danger">
+              <ul>
+                {% for field in form %}
+                  {% for error in field.errors %}
+                    <li>{{ field.label }}: {{ error }}</li>
+                  {% endfor %}
+                {% endfor %}
+                {% for error in form.non_field_errors %}
+                  <li>{{ error }}</li>
+                {% endfor %}
+              </ul>
+            </div>
+          {% endif %}
+
+          <button type="submit" class="btn btn-primary btn-lg">Send Message</button>
+        </form>
+      </div>
+
+      <!-- Contact Details -->
+      <div class="col-md-6">
+        <h2 class="text-primary mb-4">Contact Details</h2>
+        <p class="lead mb-4">Feel free to visit us or get in touch using the information below.</p>
+        <ul class="list-unstyled">
+          <li><i class="bi bi-geo-alt-fill"></i> <strong>Address:</strong> 123 Church Street, City, Country</li>
+          <li><i class="bi bi-telephone-fill"></i> <strong>Phone:</strong> +123 456 7890</li>
+          <li><i class="bi bi-envelope-fill"></i> <strong>Email:</strong> contact@cohchurch.com</li>
+          <li><i class="bi bi-clock-fill"></i> <strong>Working Hours:</strong> Mon - Fri: 9am - 5pm</li>
+        </ul>
+
+        <!-- Map Embed -->
+        <div class="map-container mt-4">
+          <iframe src="https://www.google.com/maps/embed?pb=..." width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock main-content %}

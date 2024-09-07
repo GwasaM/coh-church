@@ -1,0 +1,84 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block title %}
+    Vision and Mission
+{% endblock title %}
+
+{% block main-content %}
+<section class="vision-mission-section py-5">
+  <div class="container">
+    <!-- Page Header -->
+    <div class="row mb-5 text-center">
+      <div class="col">
+        <h1 class="display-4 text-primary">Our Vision & Mission</h1>
+        <p class="lead">Guiding Principles of the Covenant Of Holiness Church</p>
+      </div>
+    </div>
+
+    <!-- Vision Section -->
+    <div class="row mb-5 align-items-center">
+      <div class="col-md-6">
+        <h2 class="text-primary">Our Vision</h2>
+        <p class="lead">To build a community of believers who embody the teachings of Christ, walking in holiness, and spreading the light of the Gospel to every corner of the world.</p>
+      </div>
+      <div class="col-md-6">
+        <img src="{% static 'images/slide5.jpg' %}" alt="Our Vision" class="img-fluid rounded shadow">
+      </div>
+    </div>
+
+    <!-- Mission Section -->
+    <div class="row mb-5 align-items-center flex-md-row-reverse">
+      <div class="col-md-6">
+        <h2 class="text-primary">Our Mission</h2>
+        <p class="lead">To reach out to all people with the message of salvation, nurture spiritual growth, and empower individuals to live in accordance with God's will, fulfilling their divine purpose in life.</p>
+      </div>
+      <div class="col-md-6">
+        <img src="{% static 'images/slide5.jpg' %}" alt="Our Mission" class="img-fluid rounded shadow">
+      </div>
+    </div>
+
+    <!-- Core Values Section -->
+    <div class="row mb-5 text-center">
+      <div class="col">
+        <h3 class="text-primary">Our Core Values</h3>
+      </div>
+    </div>
+    <div class="row text-center">
+      <div class="col-md-4">
+        <div class="card bg-light mb-4 shadow-sm">
+          <div class="card-body">
+            <h4 class="card-title text-primary">Faith</h4>
+            <p class="card-text">Unwavering trust in God’s plan, guiding every decision and action in our journey of faith.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card bg-light mb-4 shadow-sm">
+          <div class="card-body">
+            <h4 class="card-title text-primary">Holiness</h4>
+            <p class="card-text">Living a life set apart for God, in purity and righteousness, as a reflection of Christ.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card bg-light mb-4 shadow-sm">
+          <div class="card-body">
+            <h4 class="card-title text-primary">Service</h4>
+            <p class="card-text">Dedicated to serving others with love, compassion, and selflessness, as Christ served us.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Call to Action Section -->
+    <div class="row text-center py-5">
+      <div class="col">
+        <h3 class="text-primary">Join Us in Our Journey</h3>
+        <p class="lead">Be a part of our mission to spread the Gospel and live a life of holiness. Together, we can make a difference.</p>
+        <a href="{% url 'contact' %}" class="btn btn-primary btn-lg">Contact Us</a>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock main-content %}

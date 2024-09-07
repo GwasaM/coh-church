@@ -1,0 +1,96 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block title %}
+    Blog
+{% endblock title %}
+
+{% block main-content %}
+<section class="blog-section bg-light py-5">
+  <div class="container">
+    <!-- Blog Header -->
+    <div class="row mb-5">
+      <div class="col text-center">
+        <h1 class="display-4 text-primary">Our Blog</h1>
+        <p class="lead">Insights, news, and updates from the Covenant Of Holiness Church.</p>
+      </div>
+    </div>
+
+    <!-- Featured Post -->
+    {% if featured_post %}
+    <div class="row mb-5">
+      <div class="col-md-6">
+        <img src="{{ featured_post.image.url }}" alt="{{ featured_post.title }}" class="img-fluid rounded shadow">
+      </div>
+      <div class="col-md-6 d-flex flex-column justify-content-center">
+        <h2 class="text-primary">{{ featured_post.title }}</h2>
+        <p>{{ featured_post.content|truncatewords:40 }}</p>
+        <a href="{% url 'blog_post_detail' featured_post.id %}" class="btn btn-primary">Read More</a>
+      </div>
+    </div>
+    {% endif %}
+
+    <!-- Recent Posts -->
+    <div class="row">
+      <div class="col-lg-8">
+        <h3 class="mb-4 text-primary">Recent Posts</h3>
+
+        <!-- Loop through recent posts -->
+        {% for post in recent_posts %}
+        <div class="card mb-4">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img src="{{ post.image.url }}" class="img-fluid rounded-start" alt="{{ post.title }}">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">{{ post.title }}</h5>
+                <p class="card-text">{{ post.content|truncatewords:20 }}</p>
+                <a href="{% url 'blog_post_detail' post.id %}" class="btn btn-outline-primary btn-sm">Read More</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+
+
+      <!-- Sidebar -->
+      <div class="col-lg-4">
+        <!-- Categories -->
+        <div class="card mb-4">
+          <div class="card-header text-white bg-primary">
+            Categories
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><a href="#" class="text-primary">Faith & Spirituality</a></li>
+            <li class="list-group-item"><a href="#" class="text-primary">Community Outreach</a></li>
+            <li class="list-group-item"><a href="#" class="text-primary">Events & Activities</a></li>
+            <li class="list-group-item"><a href="#" class="text-primary">Church News</a></li>
+            <li class="list-group-item"><a href="#" class="text-primary">Sermons</a></li>
+          </ul>
+        </div>
+
+        <!-- Subscribe -->
+        <div class="card mb-4">
+          <div class="card-header text-white bg-secondary">
+            Subscribe to Our Blog
+          </div>
+          <div class="card-body">
+            <form>
+              <div class="mb-3">
+                <label for="email" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="email" placeholder="Enter your email">
+              </div>
+              <button type="submit" class="btn btn-primary btn-block">Subscribe</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock main-content %}
+
+
+

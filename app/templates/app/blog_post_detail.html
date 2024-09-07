@@ -1,0 +1,21 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block title %}
+    {{ post.title }}
+{% endblock title %}
+
+{% block main-content %}
+<section class="post-section bg-light py-5">
+  <div class="container">
+    <h1>{{ post.title }}</h1>
+    <p>Published on {{ post.published_date }}</p>
+    <div>
+      <img src="{{ post.image.url }}" alt="{{ post.title }}" class="img-fluid">
+    </div>
+    <div>
+      {{ post.content }}
+    </div>
+  </div>
+</section>
+{% endblock main-content %}

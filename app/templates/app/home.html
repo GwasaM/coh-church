@@ -1,0 +1,158 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block title %}
+    Home | Covenant Of Holiness Church
+{% endblock title %}
+
+{% block main-content %}
+<!-- Hero Section -->
+<section class="hero bg-dark text-light p-5 p-lg-0 pt-lg-5 text-center text-sm-start">
+  <div class="container">
+    <div class="d-sm-flex align-items-center justify-content-between">
+      <div>
+        <h1>Find Your Path with <span class="text-warning">Covenant Of Holiness</span></h1>
+        <p class="lead my-4">
+          Join us in fellowship and spiritual growth at the Covenant Of Holiness Church. Discover the joy of worship, the strength of community, and the power of faith in your life.
+        </p>
+        <a href="#fellowship" class="btn btn-primary btn-lg mb-3">Subscribe to Join Fellowship</a>
+        
+{% if messages %}
+<div class="container">
+    {% for message in messages %}
+        <div class="alert alert-{{ message.tags }} mt-3" role="alert">
+            {{ message }}
+        </div>
+    {% endfor %}
+</div>
+{% endif %}
+
+      </div>
+      <img src="{% static 'images/CohSvgBible2.svg' %}" class="img-fluid" alt="Bible">
+    </div>
+  </div>
+</section>
+
+<!-- Carousel Section -->
+<section id="highlights" class="carousel-section my-5">
+  <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      {% for carousel in carousels %}
+      <div class="carousel-item {% if forloop.first %}active{% endif %}">
+        <img src="{{ carousel.image.url }}" class="d-block w-100 carousel-image" alt="{{ carousel.title }}">
+        <div class="carousel-caption d-none d-md-block">
+          <h5 class="text-warning">{{ carousel.title }}</h5>
+          <p>{{ carousel.contect }}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</section>
+
+
+<!-- Featured Events Section -->
+<section class="bg-light py-5">
+  <div class="container">
+    <h2 class="text-center mb-5">Latest Prophecies & Apostolic Events</h2>
+    <div class="row">
+      <!-- Card 1 -->
+      <div class="col-md-6 mb-4">
+        <div class="card h-100 shadow-lg">
+          <img src="{% static 'images/slide4.png' %}" class="card-img-top" alt="Event 1">
+          <div class="card-body">
+            <h5 class="card-title">Prophetic Night</h5>
+            <p class="card-text">
+              Join us for a night of prophecy and divine revelation. Experience the power of God's word in your life.
+            </p>
+            <p class="card-text">
+              <small class="text-muted">Last updated 3 mins ago</small>
+            </p>
+            <a href="#" class="btn btn-outline-primary">Learn More</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="col-md-6 mb-4">
+        <div class="card h-100 shadow-lg">
+          <img src="{% static 'images/slide5.jpg' %}" class="card-img-top" alt="Event 2">
+          <div class="card-body">
+            <h5 class="card-title">Apostolic Gathering</h5>
+            <p class="card-text">
+              Witness the power of the apostolic ministry as we gather in faith and unity.
+            </p>
+            <p class="card-text">
+              <small class="text-muted">Last updated 5 mins ago</small>
+            </p>
+            <a href="#" class="btn btn-outline-primary">Learn More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Sermons Section -->
+<section class="bg-dark text-light py-5">
+  <div class="container">
+    <h2 class="text-center mb-5">Our Latest Sermons</h2>
+    {% if videos %}
+      <div class="row g-4">
+        {% for video in videos %}
+        <div class="col-lg-4 col-md-6">
+          <div class="card bg-secondary border-0 shadow-sm">
+            <!-- Display the video thumbnail -->
+            <img src="{{ video.thumbnail.url }}" class="card-img-top" alt="{{ video.title }}">
+            <div class="card-body">
+              <h5 class="card-title text-light">{{ video.title }}</h5>
+              <p class="card-text">{{ video.description }}</p>
+              <a href="{{ video.video_url }}" class="btn btn-outline-light">Watch on YouTube</a>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <p>No contents</p>
+    {% endif %}
+  </div>
+</section>
+
+
+<!-- Testimonials Section -->
+<section class="py-5 bg-light text-center">
+  <div class="container">
+    <h2 class="mb-5 text-uppercase">What Our Members Say</h2>
+    <div class="row justify-content-center">
+ 
+
+      {% for testimonial in testimonials %}
+      <!-- Testimonials -->
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card shadow-sm border-0">
+          <div class="card-body">
+            <div class="mb-3">
+              <img src="{{ testimonial.photo.url }}" class="rounded-circle img-fluid" alt="{{ testimonial.name }}" style="width: 80px;">
+            </div>
+            <h5 class="card-title">{{testimonial.name}}</h5>
+            <p class="card-text">{{testimonial.content}}</p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+
+
+    </div>
+  </div>
+</section>
+
+{% endblock main-content %}

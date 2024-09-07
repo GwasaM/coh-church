@@ -1,0 +1,60 @@
+.carousel-inner{
+    height: 60rem;
+}
+
+.carousel-inner img{
+    height: 60rem;
+    object-fit: cover;
+}
+
+.card-search{
+    width: 30rem;
+    margin: 1rem 0;
+}
+
+.about-section {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+  
+  .about-section .lead {
+    font-size: 1.25rem;
+  }
+  
+  .about-section .card {
+    border: none;
+  }
+  
+  .about-section .card-img-top {
+    object-fit: cover;
+    height: 250px;
+  }
+  
+  .about-section .bg-primary,
+  .about-section .bg-secondary {
+    border-radius: 10px;
+  }
+  
+  .about-section h2, .about-section h3 {
+    font-weight: 700;
+  }
+  
+  .about-section .btn-primary {
+    border-radius: 50px;
+    padding: 10px 30px;
+  }
+  
+
+
+
+
+
+
+
+@media(min-width: 768px){
+    .news-input{
+        width: 50%;
+    }
+    
+}
+

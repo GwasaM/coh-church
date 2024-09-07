@@ -1,0 +1,88 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block title %}
+    About Us
+{% endblock title %}
+
+{% block main-content %}
+<section class="about-section bg-light py-5">
+  <div class="container">
+    <!-- Introduction -->
+    <div class="row mb-5">
+      <div class="col-lg-6">
+        <h2 class="display-4 text-primary">About Us</h2>
+        <p class="lead">
+          Welcome to the Covenant Of Holiness Church. Our mission is to bring people closer to God through faith, community, and service. 
+          We are dedicated to fostering spiritual growth and nurturing a community where everyone feels valued and loved.
+        </p>
+      </div>
+      <div class="col-lg-6">
+        <img src="{% static 'images/slide5.jpg' %}" alt="About Us" class="img-fluid rounded shadow">
+      </div>
+    </div>
+
+    <!-- Mission Statement -->
+    <div class="row text-center py-5 bg-primary text-light rounded shadow">
+      <div class="col-md-12">
+        <h3 class="display-5">Our Mission</h3>
+        <p class="lead">
+          To spread the teachings of Christ and build a compassionate, inclusive, and supportive community where everyone can experience God’s love.
+        </p>
+      </div>
+    </div>
+
+    <!-- Meet the Team -->
+    <div class="row py-5">
+      <div class="col-md-12 text-center mb-5">
+        <h3 class="display-5 text-primary">Meet Our Team</h3>
+        <p class="lead">A group of passionate individuals committed to our mission.</p>
+      </div>
+
+      <!-- Team Member 1 -->
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card h-100 text-center">
+          <img src="{% static 'images/slide5.jpg' %}" alt="Team Member 1" class="card-img-top">
+          <div class="card-body">
+            <h5 class="card-title">Pastor John Doe</h5>
+            <p class="card-text">Lead Pastor</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Team Member 2 -->
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card h-100 text-center">
+          <img src="{% static 'images/slide5.jpg' %}" alt="Team Member 2" class="card-img-top">
+          <div class="card-body">
+            <h5 class="card-title">Jane Smith</h5>
+            <p class="card-text">Community Outreach Coordinator</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Team Member 3 -->
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card h-100 text-center">
+          <img src="{% static 'images/slide5.jpg' %}" alt="Team Member 3" class="card-img-top">
+          <div class="card-body">
+            <h5 class="card-title">Mark Johnson</h5>
+            <p class="card-text">Youth Leader</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Call to Action -->
+    <div class="row text-center py-5 bg-secondary text-light rounded shadow">
+      <div class="col-md-12">
+        <h3 class="display-5">Join Us in Our Mission</h3>
+        <p class="lead">
+          Whether you're looking to deepen your faith or get involved in the community, we welcome you to join us in our journey.
+        </p>
+        <a href="{% url 'contact' %}" class="btn btn-primary btn-lg">Contact Us</a>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock main-content %}
